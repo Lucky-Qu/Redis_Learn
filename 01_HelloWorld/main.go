@@ -13,10 +13,10 @@ func main() {
 		Password: "",
 		DB:       0,
 	})
-	if err := rdb.SetEx(context.Background(), "sentence", "HelloWorld", 5*time.Second).Err(); err != nil {
+	if err := rdb.SetEx(context.Background(), "sentence", "HelloWorld", 3*time.Second).Err(); err != nil {
 		panic(err)
 	}
 	fmt.Println(rdb.Get(context.Background(), "sentence").String())
-	time.Sleep(6 * time.Second)
+	time.Sleep(3 * time.Second)
 	fmt.Println(rdb.Get(context.Background(), "sentence").String())
 }
